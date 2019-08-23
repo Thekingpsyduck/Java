@@ -1,0 +1,80 @@
+import java.util.Scanner;
+
+
+public class quiz_1 {
+	public static Scanner myNums = new Scanner(System.in);
+	public static Scanner myChars = new Scanner(System.in);
+	public static double pie = Math.PI; 
+	public static double radius;
+	public static double height;
+	public static double gasPrice;
+	public static double galNum;
+	public static int itemNum;
+	public static double itemPrice;
+	public static String itemName;
+	public static String wanted;
+	
+	public static void main(String[] Args) {
+		//question1();
+		//question2();
+		question3();
+	}
+	//question 1 code
+	private static void question1() {
+		findSize();
+		System.out.println("the volume of the cylinder is: " + volumeCylin());
+	}
+	private static double volumeCylin() {
+		return ((radius * radius) * pie) * height;
+	}
+	private static void findSize() {
+		System.out.println("radius and height of cylinder");
+		radius = myNums.nextDouble();
+		height = myNums.nextDouble();
+		
+	}	
+	//question 2 code
+	private static void question2() {
+		findPrice();
+		System.out.println("The price of gas is : $" + priceOfGas());
+	}
+	private static double priceOfGas() {
+		return galNum * gasPrice;
+	}
+	private static void findPrice() {
+		System.out.println("how many gallons and the price per gallon");
+		galNum = myNums.nextDouble();
+		gasPrice = myNums.nextDouble();
+	}
+	//question 3 code
+	private static void question3() {
+		while(true) {
+			findItemInfo();
+			System.out.println("You want " + itemNum + " " + itemName + "?");
+			System.out.println("yes or no");
+			while(true){
+				wanted = myChars.nextLine();
+				if(wanted.contains("yes")) {
+					break;
+				} else if (wanted.contains("no")) {
+					break;
+				}else {
+					System.out.println("Wrong answer please retry.");
+				}
+			}
+			if(wanted.contains("yes")) {
+				System.out.println("The cost will be $" + totalPrice());
+				break;
+			}
+		}
+	}
+	private static double totalPrice() {
+		return itemNum * itemPrice;
+	}
+	private static void findItemInfo() {
+		System.out.println("what item are your buying, how many are you buying, and how much does is cost");
+		itemName = myChars.nextLine();
+		itemNum = myNums.nextInt();
+		itemPrice = myNums.nextDouble();
+	}
+}
