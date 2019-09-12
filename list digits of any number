@@ -1,0 +1,16 @@
+class test{
+  public static void main(String[] args){
+     digitList();
+  }
+  private static void digitList() {
+      System.out.println("Please enter a number");
+      num = nums.nextInt();
+      int i = 1;
+      int len = ((int) (Math.log10(num) + 1)) + 1;
+      System.out.println("The digits of your number are in the order of the first to the last: ");
+      do {
+        System.out.println((int)(num % Math.pow(10, i)/(Math.pow(10, i-1))));
+        i++;
+      }while(i < len);	
+    }
+}
